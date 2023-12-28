@@ -59,10 +59,31 @@ class Hangman:
                 break  
 
 
-word_list = ['banana', 'mango', 'peach', 'kiwi', 'grapefruit']
+    # TODO Create a function called play_game that takes word_list as a parameter
+    def play_game(word_list):
+        
+        #Create a variable called num_lives and assign it to 5
+        num_lives = 5
+        
+        #Create an instance of the Hangman class.
+        game = Hangman(word_list, num_lives)
 
-num_lives = 5
+        #Create a while loop and set the condition to True
+        while True:
+            #Check if the num_lives is 0. If it is, that means the game has ended and the user lost. Print a message saying 'You lost!'
+            if game.num_lives == 0:
+                print('You lost!')
+                break
+            
+            #check if the num_letters is greater than 0. In this case, to continue the game, call the ask_for_input method.
+            elif game.num_letters > 0:
+                game.ask_for_input()
+            else:
+                #If the num_lives is not 0 and the num_letters is not greater than 0, that means the user has won the game. Print a message saying 'Congratulations. You won the game!'
+                print('Congratulations. You won the game!')
+                break
 
-game = Hangman(word_list, num_lives)
-game.ask_for_input()
-    
+
+    word_list = ['banana', 'mango', 'peach', 'kiwi', 'grapefruit']
+
+    play_game(word_list)
