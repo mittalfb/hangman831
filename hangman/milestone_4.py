@@ -17,9 +17,16 @@ class Hangman:
 
         #Create an if statement that checks if the guess is in the word
         if guess in self.word:
-            #n the body of the if statement, print a message saying "Good guess! {guess} is in the word."
+            #in the body of the if statement, print a message saying "Good guess! {guess} is in the word."
             print(f"Good guess! '{guess}' is in the word.")
-
+            
+            #in the if block, replace the corresponding "_" in the word_guessed with the guess
+            for index, letter in enumerate(self.word):
+                if letter == guess:
+                    self.word_guessed[index] = guess 
+                    
+            #Outside the for-loop, reduce the variable num_letters by 1
+            self.num_letters -= 1 
 
     def ask_for_input(self):
        #Create a while loop and set the condition to True
