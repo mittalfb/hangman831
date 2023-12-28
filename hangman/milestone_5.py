@@ -1,15 +1,12 @@
 import random
-
 class Hangman:
     def __init__(self, word_list, num_lives):
         self.word_list = word_list
         self.num_lives = num_lives
         self.word = random.choice(self.word_list)
-        self.word_guessed =  ['_'] * len(self.word)
+        self.word_guessed = ['_'] * len(self.word)
         self.num_letters = len(self.word)
         self.list_of_guesses = []
-
-
  
     def check_guess(self,guess):
         #Convert the guessed letter to lower case
@@ -23,7 +20,8 @@ class Hangman:
             #in the if block, replace the corresponding "_" in the word_guessed with the guess
             for index, letter in enumerate(self.word):
                 if letter == guess:
-                    self.word_guessed[index] = guess 
+                    self.word_guessed[index] = guess
+
                     
             #Outside the for-loop, reduce the variable num_letters by 1
             self.num_letters -= 1 
@@ -60,10 +58,10 @@ class Hangman:
 
 
     # TODO Create a function called play_game that takes word_list as a parameter
-    def play_game(word_list):
+    def play_game(self):
         
         #Create a variable called num_lives and assign it to 5
-        num_lives = 5
+        num_lives = self.num_lives
         
         #Create an instance of the Hangman class.
         game = Hangman(word_list, num_lives)
@@ -76,14 +74,15 @@ class Hangman:
                 break
             
             #check if the num_letters is greater than 0. In this case, to continue the game, call the ask_for_input method.
-            elif game.num_letters > 0:
-                game.ask_for_input()
+            elif self.num_letters > 0:
+                self.ask_for_input()
             else:
                 #If the num_lives is not 0 and the num_letters is not greater than 0, that means the user has won the game. Print a message saying 'Congratulations. You won the game!'
                 print('Congratulations. You won the game!')
                 break
 
 
-    word_list = ['banana', 'mango', 'peach', 'kiwi', 'grapefruit']
+word_list = ['banana', 'mango', 'peach', 'kiwi', 'grapefruit']
 
-    play_game(word_list)
+game = Hangman(word_list, 5)
+game.play_game()
