@@ -27,4 +27,35 @@ while True:
         
 
 
+# Step 1: Define a function called check_guess. pass in the guess as a parameter for the function.
+def check_guess(guess):
+    # Step 2: Convert the guess into lower case
+    guess = guess.lower()
+
+    # Step 3: Check if the guess is in the randomly chosen word
+    if guess in randomly_chosen_word:
+        print(f"Good guess! '{guess}' is in the word.")
+    else:
+        print(f"Sorry, '{guess}' is not in the word. Try again.")
+
+# TODO The ask_for_input function.
+
+# Step 1: Define a function called ask_for_input.
+def ask_for_input():
+    while True:
+        guess = input("Guess a letter: ")
+
+        if len(guess) == 1 and guess.isalpha():
+            # Return the valid guess
+            return guess  
+        else:
+            print("Invalid letter. Please, enter a single alphabetical character.")
+
+
+# Call the ask_for_input function
+user_guess = ask_for_input()
+
+# Call the check_guess function to check if the guess is in the word
+check_guess(user_guess)
+
 
