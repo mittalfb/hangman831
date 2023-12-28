@@ -25,7 +25,7 @@ choice(word_list)
 
 #Using the input function, ask the user to enter a single letter.
 
-guess = input("Enter a single letter")
+guess = input("Enter a single letter: ")
 
 # TODO Task 4
 
